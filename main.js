@@ -1,8 +1,8 @@
 class Employee {
-  constructor(argument) {
-    this._name = argument.name;
-    this._age = argument.age;
-    this._salary = argument.salary;
+  constructor(name, age, salary) {
+    this._name = name;
+    this._age = age;
+    this._salary = salary;
   }
   get name() {
     return this._name;
@@ -25,42 +25,37 @@ class Employee {
 }
 
 class Programmer extends Employee {
-  constructor(argument) {
-    super(argument);
-    this._lang = argument.lang;
+  constructor(name, age, salary, lang) {
+    super(name, age, salary);
+    this._lang = lang;
   }
   get salary() {
     return (this._salary *= 3);
   }
-
 }
 
-const programmerFirst = new Programmer({
-  name: "Petro",
-  age: 20,
-  salary: 8000,
-  lang: ["Ukrainian", "English"],
-});
+const programmerFirst = new Programmer("Petro", 20, 8000, [
+  "Ukrainian",
+  "English",
+]);
 
 console.log(programmerFirst);
 console.log(programmerFirst.salary);
 
-const programmerSecond = new Programmer({
-  name: "Alisa",
-  age: 24,
-  salary: 15000,
-  lang: ["Ukrainian", "English", "Spanish"],
-});
+const programmerSecond = new Programmer("Alisa", 24, 15000, [
+  "Ukrainian",
+  "English",
+  "Spanish",
+]);
 
 console.log(programmerSecond);
 console.log(programmerSecond.salary);
 
-const programmerThird = new Programmer({
-  name: "Ivan",
-  age: 53,
-  salary: 24000,
-  lang: ["Ukrainian", "Italian", "German"],
-});
+const programmerThird = new Programmer("Ivan", 53, 24000, [
+  "Ukrainian",
+  "Italian",
+  "German",
+]);
 
 console.log(programmerThird);
 console.log(programmerThird.salary);
